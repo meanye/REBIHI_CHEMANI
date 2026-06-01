@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion — WaraqBook</title>
+  <link rel="stylesheet" href="../style/main.css">
+  <link rel="stylesheet" href="../style/auth.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">📚 Waraq<span>Book</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="produits.html">Produits</a></li>
+        <li><a href="connexion.html" class="active" id="nav-login">Connexion</a></li>
+        <li><a href="inscription.html" id="nav-register">Inscription</a></li>
+        <li><span id="nav-user"></span></li>
+        <li><button class="btn-nav" id="logout-btn">Déconnexion</button></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="produits.html" class="cart-btn">🛒 <span id="cart-badge"></span></a>
+        <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="auth-main">
+    <div class="auth-container">
+
+      <div class="auth-visual">
+        <div class="auth-quote">
+          <p>"Un livre est un jardin que l'on porte dans sa poche."</p>
+          <span>— Proverbe arabe</span>
+        </div>
+        <div class="auth-decoration">📚</div>
+      </div>
+
+      <div class="auth-card">
+        <div class="auth-header">
+          <h1>Bon retour !</h1>
+          <p>Connectez-vous à votre compte WaraqBook</p>
+        </div>
+
+        <!-- DEMO HINT -->
+        <div class="demo-hint">
+          <strong>Compte démo :</strong> rebihi.chemani@email.com / aymenelamine123!
+        </div>
+
+        <form id="login-form" novalidate>
+          <div class="form-group">
+            <label for="email">Adresse email</label>
+            <input type="email" id="email" class="form-control" placeholder="votre@email.com" autocomplete="email">
+            <span class="field-error" id="email-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <div class="password-wrapper">
+              <input type="password" id="password" class="form-control" placeholder="••••••••" autocomplete="current-password">
+              <button type="button" class="toggle-pwd" id="toggle-pwd" title="Afficher/masquer">👁</button>
+            </div>
+            <span class="field-error" id="password-error"></span>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" id="remember-me">
+            <label for="remember-me">Se souvenir de moi</label>
+          </div>
+
+          <div id="login-error" class="auth-error" style="display:none"></div>
+
+          <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+            Se connecter
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <p>Pas encore de compte ? <a href="inscription.html">Créer un compte</a></p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../javascript/app.js"></script>
+  <script src="../javascript/connexion.js"></script>
+</body>
+</html>

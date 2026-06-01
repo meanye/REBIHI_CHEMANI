@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription — WaraqBook</title>
+  <link rel="stylesheet" href="../style/main.css">
+  <link rel="stylesheet" href="../style/auth.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">📚 Waraq<span>Book</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="produits.html">Produits</a></li>
+        <li><a href="connexion.html" id="nav-login">Connexion</a></li>
+        <li><a href="inscription.html" class="active" id="nav-register">Inscription</a></li>
+        <li><span id="nav-user"></span></li>
+        <li><button class="btn-nav" id="logout-btn">Déconnexion</button></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="produits.html" class="cart-btn">🛒 <span id="cart-badge"></span></a>
+        <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="auth-main">
+    <div class="auth-container">
+
+      <div class="auth-visual">
+        <div class="auth-quote">
+          <p>"Celui qui lit vit mille vies avant de mourir."</p>
+          <span>— George R.R. Martin</span>
+        </div>
+        <div class="auth-decoration">✍️</div>
+      </div>
+
+      <div class="auth-card">
+        <div class="auth-header">
+          <h1>Créer un compte</h1>
+          <p>Rejoignez la communauté WaraqBook</p>
+        </div>
+
+        <div id="register-success" class="auth-success" style="display:none">
+          ✓ Compte créé avec succès ! Redirection vers la connexion...
+        </div>
+
+        <form id="register-form" novalidate>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+            <div class="form-group">
+              <label for="prenom">Prénom</label>
+              <input type="text" id="prenom" class="form-control" placeholder="Aymene" autocomplete="given-name">
+              <span class="field-error" id="prenom-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" class="form-control" placeholder="Lamine" autocomplete="family-name">
+              <span class="field-error" id="nom-error"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Adresse email</label>
+            <input type="email" id="email" class="form-control" placeholder="votre@email.com" autocomplete="email">
+            <span class="field-error" id="email-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Numéro de téléphone</label>
+            <input type="tel" id="phone" class="form-control" placeholder="0770xxxxxx" autocomplete="tel">
+            <span class="field-error" id="phone-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <div class="password-wrapper">
+              <input type="password" id="password" class="form-control" placeholder="Min. 8 car. avec majuscule, chiffre, symbole" autocomplete="new-password">
+              <button type="button" class="toggle-pwd" id="toggle-pwd">👁</button>
+            </div>
+            <div class="pwd-strength">
+              <div class="pwd-bar" id="bar1"></div>
+              <div class="pwd-bar" id="bar2"></div>
+              <div class="pwd-bar" id="bar3"></div>
+            </div>
+            <p class="pwd-label" id="pwd-label">Entrez un mot de passe</p>
+            <span class="field-error" id="password-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password">Confirmer le mot de passe</label>
+            <div class="password-wrapper">
+              <input type="password" id="confirm-password" class="form-control" placeholder="••••••••" autocomplete="new-password">
+            </div>
+            <span class="field-error" id="confirm-password-error"></span>
+          </div>
+
+          <div id="register-error" class="auth-error" style="display:none"></div>
+
+          <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+            Créer mon compte
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <p>Déjà membre ? <a href="connexion.html">Se connecter</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../javascript/app.js"></script>
+  <script src="../javascript/inscription.js"></script>
+</body>
+</html>

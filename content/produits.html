@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue — WaraqBook</title>
+  <link rel="stylesheet" href="../style/main.css">
+  <link rel="stylesheet" href="../style/produits.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">📚 Waraq<span>Book</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="produits.html" class="active">Produits</a></li>
+        <li><a href="commande.html">Commandes</a></li>
+        <li><a href="connexion.html" id="nav-login">Connexion</a></li>
+        <li><a href="inscription.html" id="nav-register">Inscription</a></li>
+        <li><span id="nav-user"></span></li>
+        <li><button class="btn-nav" id="logout-btn">Déconnexion</button></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="cart-btn" onclick="toggleCart()" title="Panier">
+          🛒 <span id="cart-badge"></span>
+        </button>
+        <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+  <aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h2>🛒 Mon Panier</h2>
+      <button onclick="toggleCart()" class="cart-close">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cart-total-price">0 DA</strong>
+      </div>
+      <a href="commande.html" class="btn btn-primary btn-full" onclick="toggleCart()">
+        Passer la commande
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="container">
+        <p class="section-label">Notre sélection</p>
+        <h1 class="section-title">Catalogue complet</h1>
+        <p class="section-sub" id="product-count">Chargement...</p>
+      </div>
+    </div>
+
+    <div class="container products-layout">
+      <!-- SIDEBAR FILTERS -->
+      <aside class="filters-panel">
+        <div class="filter-group">
+          <h3 class="filter-title">Recherche</h3>
+          <input type="text" id="search-input" class="form-control" placeholder="Titre, auteur...">
+        </div>
+
+        <div class="filter-group">
+          <h3 class="filter-title">Catégorie</h3>
+          <div class="filter-options" id="category-filters">
+            <label class="filter-option active" data-cat="all">
+              <input type="radio" name="category" value="all" checked hidden>
+              <span class="opt-label">Toutes</span>
+              <span class="opt-count" id="count-all"></span>
+            </label>
+            <label class="filter-option" data-cat="roman">
+              <input type="radio" name="category" value="roman" hidden>
+              <span class="opt-label">📖 Romans</span>
+              <span class="opt-count" id="count-roman"></span>
+            </label>
+            <label class="filter-option" data-cat="classique">
+              <input type="radio" name="category" value="classique" hidden>
+              <span class="opt-label">🏛️ Classiques</span>
+              <span class="opt-count" id="count-classique"></span>
+            </label>
+            <label class="filter-option" data-cat="informatique">
+              <input type="radio" name="category" value="informatique" hidden>
+              <span class="opt-label">💻 Informatique</span>
+              <span class="opt-count" id="count-informatique"></span>
+            </label>
+            <label class="filter-option" data-cat="sciences">
+              <input type="radio" name="category" value="sciences" hidden>
+              <span class="opt-label">🔬 Sciences</span>
+              <span class="opt-count" id="count-sciences"></span>
+            </label>
+            <label class="filter-option" data-cat="philosophie">
+              <input type="radio" name="category" value="philosophie" hidden>
+              <span class="opt-label">🧠 Philosophie</span>
+              <span class="opt-count" id="count-philosophie"></span>
+            </label>
+            <label class="filter-option" data-cat="papeterie">
+              <input type="radio" name="category" value="papeterie" hidden>
+              <span class="opt-label">✏️ Papeterie</span>
+              <span class="opt-count" id="count-papeterie"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h3 class="filter-title">Prix max (DA)</h3>
+          <input type="range" id="price-range" min="0" max="2500" value="2500" step="50" class="price-slider">
+          <div class="price-display">0 DA — <strong id="price-max-label">2500 DA</strong></div>
+        </div>
+
+        <div class="filter-group">
+          <h3 class="filter-title">Trier par</h3>
+          <select id="sort-select" class="form-control">
+            <option value="default">Par défaut</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+            <option value="rating">Mieux notés</option>
+            <option value="title">A → Z</option>
+          </select>
+        </div>
+
+        <button class="btn btn-ghost btn-full btn-sm" onclick="resetFilters()">
+          Réinitialiser les filtres
+        </button>
+      </aside>
+
+      <!-- PRODUCTS GRID -->
+      <section class="products-main">
+        <div class="products-grid" id="products-grid">
+          <!-- Filled by JS -->
+        </div>
+        <div class="no-results" id="no-results" style="display:none">
+          <span>🔍</span>
+          <h3>Aucun produit trouvé</h3>
+          <p>Essayez d'autres filtres ou termes de recherche.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>📚 Waraq<span>Book</span></h3>
+        <p>Votre librairie en ligne algérienne.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="../index.html">Accueil</a>
+        <a href="produits.html">Catalogue</a>
+      </div>
+      <div class="footer-col">
+        <h4>Compte</h4>
+        <a href="connexion.html">Connexion</a>
+        <a href="inscription.html">Inscription</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 WaraqBook. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="../javascript/app.js"></script>
+  <script src="../javascript/produits.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passer commande — WaraqBook</title>
+  <link rel="stylesheet" href="../style/main.css">
+  <link rel="stylesheet" href="../style/commande.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">📚 Waraq<span>Book</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="produits.html">Produits</a></li>
+        <li><a href="commande.html" class="active">Commandes</a></li>
+        <li><a href="connexion.html" id="nav-login">Connexion</a></li>
+        <li><a href="inscription.html" id="nav-register">Inscription</a></li>
+        <li><span id="nav-user"></span></li>
+        <li><button class="btn-nav" id="logout-btn">Déconnexion</button></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="produits.html" class="cart-btn">🛒 <span id="cart-badge"></span></a>
+        <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <p class="section-label">Finaliser l'achat</p>
+        <h1 class="section-title">Votre commande</h1>
+      </div>
+    </div>
+
+    <!-- LOGIN REQUIRED -->
+    <div class="container" id="login-required" style="display:none">
+      <div class="login-wall">
+        <span>🔒</span>
+        <h2>Connexion requise</h2>
+        <p>Vous devez être connecté pour passer une commande.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;margin-top:1rem">
+          <a href="connexion.html" class="btn btn-primary">Se connecter</a>
+          <a href="inscription.html" class="btn btn-outline">Créer un compte</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMPTY CART -->
+    <div class="container" id="empty-cart" style="display:none">
+      <div class="login-wall">
+        <span>🛒</span>
+        <h2>Votre panier est vide</h2>
+        <p>Ajoutez des produits depuis le catalogue pour passer une commande.</p>
+        <a href="produits.html" class="btn btn-primary" style="margin-top:1rem">Voir le catalogue</a>
+      </div>
+    </div>
+
+    <!-- ORDER FORM -->
+    <div class="container order-layout" id="order-layout" style="display:none">
+
+      <!-- STEPS -->
+      <div class="order-steps">
+        <div class="step active" id="step-1-indicator">
+          <span class="step-num">1</span>
+          <span>Livraison</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step-2-indicator">
+          <span class="step-num">2</span>
+          <span>Paiement</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step-3-indicator">
+          <span class="step-num">3</span>
+          <span>Confirmation</span>
+        </div>
+      </div>
+
+      <div class="order-main">
+
+        <!-- STEP 1: Delivery -->
+        <section class="order-section" id="step-1">
+          <h2 class="order-section-title">📦 Informations de livraison</h2>
+
+          <form id="delivery-form" novalidate>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+              <div class="form-group">
+                <label for="d-prenom">Prénom</label>
+                <input type="text" id="d-prenom" class="form-control" placeholder="Aymene">
+                <span class="field-error" id="d-prenom-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="d-nom">Nom</label>
+                <input type="text" id="d-nom" class="form-control" placeholder="Lamine">
+                <span class="field-error" id="d-nom-error"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="d-phone">Téléphone</label>
+              <input type="tel" id="d-phone" class="form-control" placeholder="0770xxxxxx">
+              <span class="field-error" id="d-phone-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="d-address">Adresse complète</label>
+              <input type="text" id="d-address" class="form-control" placeholder="Ummto Departements Informatique, Tizi Ouzou">
+              <span class="field-error" id="d-address-error"></span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+              <div class="form-group">
+                <label for="d-wilaya">Wilaya</label>
+                <select id="d-wilaya" class="form-control">
+                  <option value="">Sélectionner</option>
+                  <option>Alger</option><option>Oran</option><option>Constantine</option>
+                  <option>Annaba</option><option>Blida</option><option>Tizi-Ouzou</option>
+                  <option>Béjaïa</option><option>Sétif</option><option>Batna</option>
+                  <option>Autre</option>
+                </select>
+                <span class="field-error" id="d-wilaya-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="d-code">Code postal</label>
+                <input type="text" id="d-code" class="form-control" placeholder="15000">
+                <span class="field-error" id="d-code-error"></span>
+              </div>
+            </div>
+
+            <h3 class="sub-title">Mode de livraison</h3>
+            <div class="delivery-options">
+              <label class="delivery-opt active" id="opt-standard">
+                <input type="radio" name="delivery" value="standard" checked hidden>
+                <div class="opt-info">
+                  <strong>Livraison standard</strong>
+                  <span>3 à 5 jours ouvrables</span>
+                </div>
+                <span class="opt-price">400 DA</span>
+              </label>
+              <label class="delivery-opt" id="opt-express">
+                <input type="radio" name="delivery" value="express" hidden>
+                <div class="opt-info">
+                  <strong>Livraison express</strong>
+                  <span>24 à 48 heures</span>
+                </div>
+                <span class="opt-price">800 DA</span>
+              </label>
+            </div>
+
+            <div style="margin-top:1.5rem">
+              <button type="submit" class="btn btn-primary">
+                Continuer vers le paiement →
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- STEP 2: Payment -->
+        <section class="order-section" id="step-2" style="display:none">
+          <h2 class="order-section-title">💳 Mode de paiement</h2>
+
+          <div class="payment-options">
+            <label class="payment-opt active" data-method="cash">
+              <input type="radio" name="payment" value="cash" checked hidden>
+              <span class="pay-icon">💵</span>
+              <div>
+                <strong>Paiement à la livraison</strong>
+                <span>Payez en espèces à la réception</span>
+              </div>
+            </label>
+            <label class="payment-opt" data-method="ccp">
+              <input type="radio" name="payment" value="ccp" hidden>
+              <span class="pay-icon">🏦</span>
+              <div>
+                <strong>Virement CCP / Baridimob</strong>
+                <span>Transfert bancaire Algérie Poste</span>
+              </div>
+            </label>
+          </div>
+
+          <div class="order-note">
+            <strong>Note :</strong> Pour le virement CCP, un numéro de compte vous sera communiqué après confirmation de votre commande.
+          </div>
+
+          <div style="display:flex;gap:1rem;margin-top:1.5rem">
+            <button class="btn btn-ghost" onclick="goToStep(1)">← Retour</button>
+            <button class="btn btn-primary" onclick="goToStep(3)">Confirmer la commande →</button>
+          </div>
+        </section>
+
+        <!-- STEP 3: Confirmation -->
+        <section class="order-section" id="step-3" style="display:none">
+          <div class="success-box">
+            <div class="success-icon">✅</div>
+            <h2>Commande confirmée !</h2>
+            <p>Merci pour votre commande. Vous recevrez une confirmation par téléphone sous 24h.</p>
+            <p class="order-num">N° commande : <strong id="order-number"></strong></p>
+            <div style="display:flex;gap:1rem;justify-content:center;margin-top:1.5rem">
+              <a href="produits.html" class="btn btn-outline">Continuer mes achats</a>
+              <a href="../index.html" class="btn btn-primary">Retour à l'accueil</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ORDER SUMMARY -->
+      <aside class="order-summary">
+        <h2 class="order-section-title">🧾 Récapitulatif</h2>
+        <div id="summary-items"></div>
+        <div class="summary-divider"></div>
+        <div class="summary-line">
+          <span>Sous-total</span>
+          <strong id="summary-subtotal">0 DA</strong>
+        </div>
+        <div class="summary-line">
+          <span>Livraison</span>
+          <strong id="summary-delivery">400 DA</strong>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-line summary-total">
+          <span>Total</span>
+          <strong id="summary-total">0 DA</strong>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>📚 Waraq<span>Book</span></h3>
+        <p>Votre librairie en ligne algérienne.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="../index.html">Accueil</a>
+        <a href="produits.html">Catalogue</a>
+      </div>
+      <div class="footer-col">
+        <h4>Compte</h4>
+        <a href="connexion.html">Connexion</a>
+        <a href="inscription.html">Inscription</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 WaraqBook. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="../javascript/app.js"></script>
+  <script src="../javascript/commande.js"></script>
+</body>
+</html>
