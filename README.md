@@ -87,7 +87,7 @@ Password : aymenelamine123!
 4. Utiliser le compte démo ou créer un nouveau compte
 5. Ajouter des produits au panier et passer commande
 
-> ⚠️ Pas besoin de serveur local — tout fonctionne en ouvrant directement le fichier HTML.
+> ⚠️ Besoin de serveur local .
 
 ---
 
