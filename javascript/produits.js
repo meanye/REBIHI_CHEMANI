@@ -7,7 +7,7 @@ const PRODUCTS_DATA = [
     "category": "philosophie",
     "price": 850,
     "rating": 4.8,
-    "image": "images/0008739161-L.jpg",
+    "image": "https://covers.openlibrary.org/b/id/8739161-L.jpg",
     "description": "Un roman philosophique fascinant qui retrace l'histoire de la philosophie à travers une adolescente norvégienne.",
     "stock": 12
   },
@@ -18,7 +18,7 @@ const PRODUCTS_DATA = [
     "category": "roman",
     "price": 720,
     "rating": 4.7,
-    "image": "images/0008231856-L.jpg",
+    "image": "https://covers.openlibrary.org/b/id/8231856-L.jpg",
     "description": "Un conte philosophique sur un jeune berger andalou qui voyage vers l'Égypte à la recherche d'un trésor.",
     "stock": 20
   },
@@ -29,7 +29,7 @@ const PRODUCTS_DATA = [
     "category": "roman",
     "price": 650,
     "rating": 4.9,
-    "image": "images/0010527836-L.jpg",
+    "image": "https://covers.openlibrary.org/b/id/10527836-L.jpg",
     "description": "Chef-d'œuvre de la littérature algérienne, une fresque poétique et politique de l'Algérie colonisée.",
     "stock": 8
   },
@@ -40,7 +40,7 @@ const PRODUCTS_DATA = [
     "category": "informatique",
     "price": 1200,
     "rating": 4.5,
-    "image": "images/0009255566-L.jpg",
+    "image": "https://covers.openlibrary.org/b/id/9255566-L.jpg",
     "description": "Un guide complet sur les structures de données fondamentales avec des exemples en langage C.",
     "stock": 15
   },
@@ -51,7 +51,7 @@ const PRODUCTS_DATA = [
     "category": "sciences",
     "price": 1800,
     "rating": 4.6,
-    "image": "images/0008091016-L.jpg",
+    "image": "https://covers.openlibrary.org/b/id/8091016-L.jpg",
     "description": "La référence incontournable des mathématiques appliquées pour les étudiants en ingénierie.",
     "stock": 10
   },
@@ -62,7 +62,7 @@ const PRODUCTS_DATA = [
     "category": "classique",
     "price": 500,
     "rating": 5.0,
-    "image": "images/0008476616-L.jpg",
+    "image": "https://covers.openlibrary.org/b/id/8476616-L.jpg",
     "description": "Un conte poétique et philosophique sous l'apparence d'un conte pour enfants.",
     "stock": 30
   },
@@ -73,7 +73,7 @@ const PRODUCTS_DATA = [
     "category": "informatique",
     "price": 2200,
     "rating": 4.8,
-    "image": "images/0008692777-L.jpg",
+    "image": "https://covers.openlibrary.org/b/id/8692777-L.jpg",
     "description": "La bible de l'algorithmique, utilisée dans les meilleures universités du monde.",
     "stock": 7
   },
@@ -84,7 +84,7 @@ const PRODUCTS_DATA = [
     "category": "classique",
     "price": 680,
     "rating": 4.7,
-    "image": "images/0009255569-L.jpg",
+    "image": "https://covers.openlibrary.org/b/id/9255569-L.jpg",
     "description": "Le roman emblématique de Camus qui décrit une épidémie de peste à Oran, en Algérie.",
     "stock": 18
   },
@@ -95,7 +95,7 @@ const PRODUCTS_DATA = [
     "category": "sciences",
     "price": 2000,
     "rating": 4.4,
-    "image": "images/10909258.jpg",
+    "image": "https://covers.openlibrary.org/b/id/10909258-L.jpg",
     "description": "Une introduction accessible aux mystères fascinants de la physique quantique.",
     "stock": 9
   },
@@ -106,7 +106,7 @@ const PRODUCTS_DATA = [
     "category": "roman",
     "price": 750,
     "rating": 4.9,
-    "image": "images/7222246-L.jpg",
+    "image": "https://covers.openlibrary.org/b/id/7222246-L.jpg",
     "description": "Un roman dystopique saisissant sur la surveillance totale et la manipulation de la vérité.",
     "stock": 22
   },
@@ -117,7 +117,7 @@ const PRODUCTS_DATA = [
     "category": "papeterie",
     "price": 350,
     "rating": 4.3,
-    "image": "images/photo-1531346680769-a1d79b57de5c.jpg",
+    "image": "https://images.unsplash.com/photo-1531346680769-a1d79b57de5c?w=300&h=400&fit=crop",
     "description": "Lot de 5 cahiers Oxford grands carreaux, couverture rigide, 100 pages.",
     "stock": 50
   },
@@ -128,7 +128,7 @@ const PRODUCTS_DATA = [
     "category": "papeterie",
     "price": 280,
     "rating": 4.5,
-    "image": "images/photo-1583485088034-697b5bc54ccd.jpg",
+    "image": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=300&h=400&fit=crop",
     "description": "Boîte de 20 stylos Bic cristal bleus, écriture fluide et durable.",
     "stock": 100
   }
