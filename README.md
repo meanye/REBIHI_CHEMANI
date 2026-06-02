@@ -165,10 +165,10 @@ Toutes les pages ont été validées via [validator.w3.org](https://validator.w3
 
 ## Membres du groupe
 
-| Nom | Prénom |
-|-----|--------|
-| REBIHI | Aymene |
-| CHEMANI | Lamine |
+| Nom | Prénom | Groupe |
+|-----|--------|--------|
+| REBIHI | Aymene |   5    |
+| CHEMANI | Lamine |   5    |
 
 ---
 
