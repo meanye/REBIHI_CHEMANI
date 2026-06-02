@@ -65,6 +65,15 @@ FONCTIONNALITÉS TECHNIQUES :
 - Balises sémantiques HTML5
 - Animations CSS et micro-interactions
 
+## Compte démo
+
+```
+Email    : rebihi.chemani@email.com
+Password : aymenelamine123!
+```
+
+---
+
 MEMBRES DU GROUPE :
 --------------------
   REBIHI Aymene
