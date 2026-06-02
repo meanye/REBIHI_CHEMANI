@@ -10,12 +10,17 @@ const USERS_DB = [
   },
 ];
 
-
 const Auth = {
   login(email, password) {
-    const user = USERS_DB.find(
-      u => u.email === email && u.password === password
-    );
+
+    let user = USERS_DB.find(u => u.email === email && u.password === password);
+
+
+    if (!user) {
+      const registered = JSON.parse(localStorage.getItem("registered_users") || "[]");
+      user = registered.find(u => u.email === email && u.password === password);
+    }
+
     if (user) {
       const session = {
         id: user.id,
@@ -45,15 +50,24 @@ const Auth = {
   },
 
   register(nom, prenom, email, password, phone) {
-    const exists = USERS_DB.find(u => u.email === email);
-    if (exists) {
+
+    const existsHardcoded = USERS_DB.find(u => u.email === email);
+
+    const registered = JSON.parse(localStorage.getItem("registered_users") || "[]");
+    const existsRegistered = registered.find(u => u.email === email);
+
+    if (existsHardcoded || existsRegistered) {
       return { success: false, message: "Cet email est déjà utilisé." };
     }
+
     const newUser = {
-      id: USERS_DB.length + 1,
+      id: USERS_DB.length + registered.length + 1,
       nom, prenom, email, password, phone
     };
-    USERS_DB.push(newUser);
+
+    registered.push(newUser);
+    localStorage.setItem("registered_users", JSON.stringify(registered));
+
     return { success: true, message: "Compte créé avec succès !" };
   }
 };
