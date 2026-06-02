@@ -72,6 +72,5 @@ MEMBRES DU GROUPE :
 
 HÉBERGEMENT :
 --------------
-(Ajouter le lien GitHub Pages ou Netlify ici si déployé)
-Exemple : https://votre-username.github.io/WaraqBook/
+https://meanye.github.io/REBIHI_CHEMANI/index.html
 ============================================================
